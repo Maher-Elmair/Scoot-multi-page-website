@@ -1,0 +1,165 @@
+// import globalStyle
+@import "_globalStyle.scss";
+
+/*! start code */
+/*! start loader */
+.loader {
+  display: block;
+  animation: removed 1s cubic-bezier(0, 0, 1, 1) 2s forwards;
+}
+
+/*! start about */
+.about {
+  @extend %basic-title ;
+  display: block;
+  background: url(../images/about/about-hero-desktop.jpg) no-repeat;
+  @include media("<=tablet") {
+    background: url(../images/about/about-hero-tablet.jpg) no-repeat;
+  }
+  @include media("<=480px") {
+    background: url(../images/about/about-hero-mobile.jpg) no-repeat;
+    background-size: cover;
+  }
+}
+
+/*! start similar */
+.similar{
+  @extend %similar;
+}
+
+/*! start similar-row */
+.similar-row{
+  @extend %similar-row;
+}
+
+/*! start triple-circle */
+.triple-circle{
+  @extend %triple-circle;
+}
+
+/*! start faqs */
+.faqs {
+  .container {
+    .main-heading {
+      margin: 3.75rem auto;
+      h2 {
+        color: $dark-Navy;
+        text-align: center;
+        font: {
+          family: Space Mono;
+          size: 3rem;
+          weight: 700;
+        }
+        line-height: 3rem; /* 100% */
+        letter-spacing: -0.13394rem;
+      }
+    }
+    .faqs-content {
+      .how {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 3.75rem;
+        .text {
+          width: 40%;
+          .title {
+            color: $dark-Navy;
+            font: {
+              family: Space Mono;
+              size: 2.5rem;
+              weight: 700;
+            }
+            line-height: 3rem; /* 120% */
+            letter-spacing: -0.11163rem;
+          }
+        }
+        .faq {
+          width: 60%;
+          display: inline-flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-direction: column;
+          gap: 1.125rem;
+          .rectangular {
+            background: #f2f5f9;
+            padding: 1.625rem;
+            border-radius: 0.375rem;
+            width: 100%;
+            .line {
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              h3 {
+                color: $dark-Navy;
+                font: {
+                  family: Space Mono;
+                  size: 1.5rem;
+                  weight: 700;
+                }
+                line-height: 1.75rem; /* 116.667% */
+                letter-spacing: -0.06694rem;
+              }
+              .chevron {
+                width: 1.25rem;
+                height: 1.125rem;
+                transition: 1s;
+                cursor: pointer;
+              }
+              .round {
+                transition: 1s;
+                cursor: pointer;
+                transform: rotate(180deg);
+              }
+            }
+            .show {
+              display: block;
+              color: $dark-Navy;
+              padding-top: 1.25rem;
+              transition: 1s;
+              font: {
+                family: Lexend Deca;
+                size: 0.9375rem;
+                weight: 400;
+              }
+              line-height: 1.5625rem; /* 166.667% */
+            }
+            .hide {
+              display: none;
+              transition: 1s;
+            }
+            &:hover {
+              background: $light-Yellow;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include media("<=tablet") {
+    .container {
+      .faqs-content {
+        .how {
+          flex-direction: column;
+          align-items: center;
+          .text {
+            width: initial;
+            .title {
+              margin-bottom: 1.5rem;
+            }
+          }
+          .faq {
+            width: initial;
+          }
+        }
+      }
+    }
+  }
+  @include media("<=480px") {
+    .container .faqs-content .how .faq .rectangular .line h3 {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+/*! end code */

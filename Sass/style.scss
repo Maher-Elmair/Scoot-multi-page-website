@@ -1,0 +1,337 @@
+// import globalStyle
+@import "_globalStyle.scss";
+
+/*! start code */
+
+/*! start landing */
+.landing {
+  background: url(../images/home/home-hero-desktop.jpg) no-repeat;
+  background-size: cover;
+  height: 36rem;
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    display: block;
+    width: 11.375rem;
+    // width: inherit;
+    height: 3.75rem;
+    background: url(../images/patterns/white-circles.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 24rem;
+    right: -2rem;
+  }
+  .container {
+    .title {
+      padding: 8rem 0 2rem;
+      color: $normal;
+      width: 31.25rem;
+      font: {
+        family: Space Mono;
+        size: 3.5rem;
+        weight: 700;
+      }
+      line-height: 3.5rem; /* 100% */
+      letter-spacing: -0.15625rem;
+      transform: translateX(-3.12rem);
+    }
+    .subtitle {
+      color: $normal;
+      width: 24.5rem;
+      padding-bottom: 2.25rem;
+      position: relative;
+      font: {
+        family: Lexend Deca;
+        size: 0.875rem;
+        weight: 400;
+      }
+      &::before {
+        content: "";
+        display: block;
+        width: 25rem;
+        // width: inherit;
+        height: 0.875rem;
+        background: url(../images/patterns/line.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: absolute;
+        top: 2.875rem;
+        left: -27rem;
+      }
+      &::after {
+        content: "";
+        display: block;
+        width: 25rem;
+        // width: inherit;
+        height: 8.625rem;
+        background: url(../images/patterns/right-arrow.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: 2.875rem;
+        right: -25.75rem;
+      }
+    }
+    .btn-lan {
+      @extend %button;
+    }
+  }
+  @include media("<=1029px") {
+    .container .title {
+      transform: translateX(-1.25rem);
+    }
+  }
+  @include media("<=999px") {
+    .container .subtitle::after {
+      width: 18rem;
+      top: 1rem;
+      right: -18rem;
+    }
+  }
+  @include media("<=tablet") {
+    background: url(../images/home/home-hero-tablet.jpg) no-repeat;
+    height: 40rem;
+    &::before {
+      content: "";
+      display: block;
+      width: 25rem;
+      height: 8.625rem;
+      background: url(../images/patterns/right-arrow.svg) no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 29rem;
+      left: -6rem;
+    }
+    &::after {
+      width: 12.375rem;
+      top: 34rem;
+      right: -2rem;
+    }
+    .container {
+      text-align: center;
+      .title {
+        transform: translateX(0rem);
+      }
+      .subtitle {
+        margin: auto;
+        width: 32.5rem;
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+      .btn-lan {
+        margin: auto;
+      }
+    }
+  }
+  @include media("<=540px") {
+    &::before {
+      left: -10rem;
+    }
+    .container {
+      .title {
+        margin: auto;
+        font-size: 2.5rem;
+        width: 27.5rem;
+      }
+      .subtitle {
+        width: 27.5rem;
+      }
+    }
+  }
+  @include media("<=480px") {
+    background: url(../images/home/home-hero-mobile.jpg) no-repeat;
+    background-size: cover;
+    height: 50rem;
+    &::before {
+      left: -16rem;
+      top: 38rem;
+    }
+    &::after {
+      display: none;
+    }
+    .container {
+      .title {
+        font-size: 2.5rem;
+        width: 17.75rem;
+      }
+      .subtitle {
+        width: 17.75rem;
+      }
+    }
+  }
+}
+
+/*! start cards */
+.cards {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.25rem;
+    margin: 3.75rem auto;
+    text-align: left;
+    .card {
+      position: relative;
+      img {
+        display: block;
+        max-width: 5rem;
+        &:hover {
+          cursor: pointer;
+          animation: rotate 2s cubic-bezier(0, 0, 1, 1) 0s forwards;
+        }
+      }
+      .content {
+        .title {
+          color: $dark-Navy;
+          padding: 1.875rem 0 1.25rem 0;
+          font: {
+            size: 1.25rem;
+            family: Space Mono;
+            weight: 700;
+          }
+          line-height: 1.75rem; /* 116.667% */
+          letter-spacing: -0.06694rem;
+        }
+        .subtitle {
+          color: $dim-Grey;
+          width: 20rem;
+          font: {
+            family: Lexend Deca;
+            size: 0.875rem;
+            weight: 400;
+          }
+          line-height: 1.5625rem; /* 166.667% */
+        }
+      }
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 0.75rem;
+        background-color: $light-Grey;
+        position: absolute;
+        top: 2rem;
+        right: 18rem;
+        z-index: -1;
+      }
+    }
+  }
+  @include media("<=1029px") {
+    .container {
+      .card {
+        &::before {
+          right: 15rem;
+        }
+        .content {
+          .subtitle {
+            width: 17rem;
+          }
+        }
+      }
+    }
+  }
+  @include media("<=999px") {
+    .container {
+      .card {
+        &::before {
+          right: 12rem;
+        }
+        .content {
+          .subtitle {
+            width: 14rem;
+          }
+        }
+      }
+    }
+  }
+  @include media("<=tablet") {
+    .container {
+      flex-direction: column;
+      .card {
+        &::before {
+          right: 0rem;
+          left: -4.75rem;
+          width: 0.75rem;
+          height: 12rem;
+          top: -7rem;
+        }
+        img {
+          position: absolute;
+          top: 2rem;
+          left: -7rem;
+        }
+        .content {
+          .subtitle {
+            width: 17rem;
+          }
+        }
+      }
+    }
+  }
+  @include media("<=540px") {
+    .container {
+      .card {
+        &::before {
+          left: -3.75rem;
+        }
+        img {
+          left: -6rem;
+        }
+      }
+    }
+  }
+  @include media("<=480px") {
+    .container {
+      gap: 1.5;
+      .card {
+        text-align: center;
+        &::before {
+          right: 0rem;
+          left: -4.75rem;
+          width: 0.75rem;
+          height: 12rem;
+          top: -7rem;
+          display: none;
+        }
+        img {
+          position: relative;
+          top: 0rem;
+          left: 0rem;
+          margin: auto;
+        }
+        .content {
+          .subtitle {
+            width: 18rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(-90deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/*! start similar */
+.similar {
+  @extend %similar;
+}
+
+/*! start similar-row */
+.similar-row {
+  @extend %similar-row;
+}
+/*! end code */
